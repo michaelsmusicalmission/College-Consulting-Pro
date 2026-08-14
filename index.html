@@ -1,0 +1,743 @@
+<meta charset="utf-8">
+<title>College Consulting Pro: Brian, College Admissions Consultant</title>
+<style>
+  :root {
+    --ink: #16241d;
+    --paper: #eae7da;
+    --paper-raised: #f4f2e8;
+    --pine: #2b4736;
+    --pine-soft: #3d5c48;
+    --gold: #9c7a3c;
+    --gold-strong: #7e6230;
+    --rule: rgba(22, 36, 29, 0.16);
+    --muted: #5b6259;
+    --shadow: rgba(22, 36, 29, 0.14);
+    --redink: #8a3226;
+    --redink-soft: rgba(138, 50, 38, 0.08);
+    --cover-bg: #33513e;
+    --cover-fg: #f8f6ec;
+    --cover-muted: rgba(248, 246, 236, 0.76);
+    --cover-rule: rgba(248, 246, 236, 0.22);
+    --cover-accent: #e0b96e;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #e9e4d4;
+      --paper: #0e1712;
+      --paper-raised: #14201a;
+      --pine: #8fb89b;
+      --pine-soft: #6e9c7b;
+      --gold: #cda35d;
+      --gold-strong: #e2ba79;
+      --rule: rgba(233, 228, 212, 0.18);
+      --muted: #a3ab9e;
+      --shadow: rgba(0, 0, 0, 0.45);
+      --redink: #d97b64;
+      --redink-soft: rgba(217, 123, 100, 0.1);
+      --cover-bg: #1f3327;
+      --cover-fg: #efe9d6;
+      --cover-muted: rgba(239, 233, 214, 0.7);
+      --cover-rule: rgba(239, 233, 214, 0.18);
+      --cover-accent: #cda35d;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ink: #e9e4d4;
+    --paper: #0e1712;
+    --paper-raised: #14201a;
+    --pine: #8fb89b;
+    --pine-soft: #6e9c7b;
+    --gold: #cda35d;
+    --gold-strong: #e2ba79;
+    --rule: rgba(233, 228, 212, 0.18);
+    --muted: #a3ab9e;
+    --shadow: rgba(0, 0, 0, 0.45);
+    --redink: #d97b64;
+    --redink-soft: rgba(217, 123, 100, 0.1);
+    --cover-bg: #1f3327;
+    --cover-fg: #efe9d6;
+    --cover-muted: rgba(239, 233, 214, 0.7);
+    --cover-rule: rgba(239, 233, 214, 0.18);
+    --cover-accent: #cda35d;
+  }
+
+  :root[data-theme="light"] {
+    --ink: #16241d;
+    --paper: #eae7da;
+    --paper-raised: #f4f2e8;
+    --pine: #2b4736;
+    --pine-soft: #3d5c48;
+    --gold: #9c7a3c;
+    --gold-strong: #7e6230;
+    --rule: rgba(22, 36, 29, 0.16);
+    --muted: #5b6259;
+    --shadow: rgba(22, 36, 29, 0.14);
+    --redink: #8a3226;
+    --redink-soft: rgba(138, 50, 38, 0.08);
+    --cover-bg: #33513e;
+    --cover-fg: #f8f6ec;
+    --cover-muted: rgba(248, 246, 236, 0.76);
+    --cover-rule: rgba(248, 246, 236, 0.22);
+    --cover-accent: #e0b96e;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: Optima, Futura, "Century Gothic", "Avenir Next", "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .display {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-weight: 400;
+    color: var(--ink);
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 74rem;
+    margin: 0 auto;
+    padding: 0 1.75rem;
+  }
+
+  .label {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold-strong);
+    font-weight: 600;
+  }
+
+  /* Masthead bar */
+  .masthead {
+    border-bottom: 1px solid var(--rule);
+    background: var(--paper);
+  }
+  .masthead .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
+    gap: 1.5rem;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .logo-mark {
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--paper-raised);
+    font-family: "Iowan Old Style", Palatino, Georgia, serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.01em;
+    color: var(--pine);
+  }
+  .mark {
+    font-family: "Iowan Old Style", Palatino, Georgia, serif;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+  }
+  .mark span { color: var(--muted); font-style: italic; }
+  nav.primary {
+    display: flex;
+    align-items: center;
+    gap: 1.9rem;
+    flex-wrap: wrap;
+  }
+  nav.primary a {
+    text-decoration: none;
+    font-size: 0.86rem;
+    letter-spacing: 0.03em;
+    color: var(--muted);
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  nav.primary a:hover { color: var(--ink); border-color: var(--gold); }
+  .btn {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 0.84rem;
+    letter-spacing: 0.03em;
+    padding: 0.62rem 1.15rem;
+    border-radius: 3px;
+    border: 1px solid var(--pine);
+    color: var(--paper);
+    background: var(--pine);
+    white-space: nowrap;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .btn:hover { background: var(--pine-soft); transform: translateY(-1px); }
+  .btn.ghost {
+    background: transparent;
+    color: var(--ink);
+    border-color: var(--rule);
+  }
+  .btn.ghost:hover { border-color: var(--gold); color: var(--gold-strong); background: transparent; }
+
+  /* Cover hero */
+  .hero-cover {
+    background: var(--cover-bg);
+    color: var(--cover-fg);
+    padding: 4.8rem 0 0;
+  }
+  .hero-top {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  .hero-cover .label { color: var(--cover-accent); }
+  .hero-cover h1 {
+    margin: 1.1rem 0 0;
+    color: var(--cover-fg);
+    font-size: clamp(2.2rem, 4.4vw, 3.3rem);
+    line-height: 1.14;
+  }
+  .hero-cover .tagline {
+    margin: 1.3rem 0 0;
+    max-width: 30rem;
+    font-size: 1.1rem;
+    color: var(--cover-muted);
+    font-style: italic;
+    font-family: "Iowan Old Style", Palatino, Georgia, serif;
+  }
+  .hero-cover .cta-row {
+    margin: 2.1rem 0 0;
+    display: flex;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+  }
+  .hero-cover .btn {
+    background: var(--cover-accent);
+    border-color: var(--cover-accent);
+    color: var(--cover-bg);
+  }
+  .hero-cover .btn:hover { background: var(--cover-fg); border-color: var(--cover-fg); }
+  .hero-cover .btn.ghost {
+    background: transparent;
+    color: var(--cover-fg);
+    border-color: var(--cover-rule);
+  }
+  .hero-cover .btn.ghost:hover { border-color: var(--cover-accent); color: var(--cover-accent); }
+
+  .cover-seal {
+    justify-self: center;
+    width: 14.5rem;
+    height: 14.5rem;
+    border-radius: 50%;
+    border: 1px solid var(--cover-rule);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+  }
+  .cover-seal::before {
+    content: "";
+    position: absolute;
+    inset: 0.75rem;
+    border: 1px solid var(--cover-accent);
+    border-radius: 50%;
+    opacity: 0.6;
+  }
+  .cover-seal .inner { text-align: center; padding: 0 1.4rem; }
+  .cover-seal .monogram {
+    font-family: "Iowan Old Style", Palatino, Georgia, serif;
+    font-size: 2.5rem;
+    color: var(--cover-fg);
+    letter-spacing: 0.02em;
+  }
+  .cover-seal .sub {
+    margin-top: 0.35rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cover-muted);
+  }
+
+  .cover-stats {
+    margin-top: 3.6rem;
+    border-top: 1px solid var(--cover-rule);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+  }
+  .cover-stats .stat {
+    padding: 1.9rem 1rem;
+    border-left: 1px solid var(--cover-rule);
+  }
+  .cover-stats .stat:first-child { border-left: none; }
+  .cover-stats .n {
+    font-family: "Iowan Old Style", Palatino, Georgia, serif;
+    font-size: 1.9rem;
+    color: var(--cover-fg);
+    font-variant-numeric: tabular-nums;
+  }
+  .cover-stats .d {
+    margin-top: 0.3rem;
+    font-size: 0.74rem;
+    color: var(--cover-muted);
+    letter-spacing: 0.02em;
+  }
+
+  /* Section shell */
+  section { padding: 4.5rem 0; }
+  section.tight { padding: 3.5rem 0; }
+  .section-head { max-width: 40rem; margin-bottom: 2.6rem; }
+  .section-head .label { display: block; margin-bottom: 0.7rem; }
+  .section-head h2 { font-size: clamp(1.7rem, 2.6vw, 2.2rem); }
+  .section-head p.lede {
+    margin-top: 0.9rem;
+    color: var(--muted);
+    font-size: 1.02rem;
+    max-width: 36rem;
+  }
+
+  /* Results marquee */
+  .results-band {
+    background: var(--paper-raised);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .school-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 0;
+    font-family: "Iowan Old Style", Palatino, Georgia, serif;
+  }
+  .school-list span {
+    padding: 0.55rem 1.3rem;
+    border-right: 1px solid var(--rule);
+    font-size: 1.05rem;
+  }
+  .school-list span:last-child { border-right: none; }
+  .callout-chip {
+    margin-top: 1.1rem;
+    display: inline-block;
+    font-size: 0.82rem;
+    color: var(--gold-strong);
+    letter-spacing: 0.03em;
+  }
+
+  /* Process list */
+  .process-list {
+    display: flex;
+    flex-direction: column;
+  }
+  .process-row {
+    display: grid;
+    grid-template-columns: 3.5rem 1fr;
+    gap: 1.6rem;
+    padding: 1.6rem 0;
+    border-top: 1px solid var(--rule);
+  }
+  .process-row:last-child { border-bottom: 1px solid var(--rule); }
+  .process-row .num {
+    font-family: "Iowan Old Style", Palatino, Georgia, serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+    font-variant-numeric: tabular-nums;
+    padding-top: 0.1rem;
+  }
+  .process-row h3 { font-size: 1.15rem; margin-bottom: 0.4rem; }
+  .process-row p { margin: 0; color: var(--muted); max-width: 42rem; font-size: 0.98rem; }
+
+  /* Essay panel */
+  .essay-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    background: var(--paper-raised);
+    border-top: 3px solid var(--gold);
+    border-radius: 2px;
+    padding: 3rem;
+  }
+  .essay-panel .copy p {
+    margin: 0 0 1rem;
+    color: var(--muted);
+    font-size: 1.02rem;
+  }
+  .essay-panel .copy p:last-child { margin-bottom: 0; }
+  .citation-card {
+    position: relative;
+    padding: 0.5rem 0 0 1.9rem;
+  }
+  .citation-card .glyph {
+    position: absolute;
+    left: -0.6rem;
+    top: -1.8rem;
+    font-family: "Iowan Old Style", Palatino, Georgia, serif;
+    font-size: 5rem;
+    color: var(--gold);
+    opacity: 0.5;
+    line-height: 1;
+  }
+  .citation-card p {
+    font-family: "Iowan Old Style", Palatino, Georgia, serif;
+    font-style: italic;
+    font-size: 1.28rem;
+    line-height: 1.5;
+    color: var(--ink);
+    margin: 0;
+  }
+  .citation-card cite {
+    display: block;
+    margin-top: 1rem;
+    font-family: Optima, Futura, sans-serif;
+    font-style: normal;
+    font-size: 0.76rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold-strong);
+  }
+
+  /* About / dossier */
+  .dossier {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 3rem;
+  }
+  .dossier-card {
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 1.9rem;
+  }
+  .dossier-card .role { color: var(--muted); font-size: 0.9rem; margin-top: 0.2rem; }
+  .cred-list { list-style: none; margin: 1.4rem 0 0; padding: 0; display: flex; flex-direction: column; gap: 0.75rem; }
+  .cred-list li {
+    font-size: 0.9rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--gold);
+    color: var(--ink);
+  }
+  .cred-list li span { display: block; color: var(--muted); font-size: 0.82rem; margin-top: 0.15rem; }
+  .about-copy p { color: var(--muted); font-size: 1.01rem; margin: 0 0 1.1rem; }
+  .about-copy p:last-child { margin-bottom: 0; }
+  .award-line {
+    margin-top: 1.6rem;
+    display: flex;
+    gap: 0.9rem;
+    align-items: baseline;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--rule);
+  }
+  .award-line .label { white-space: nowrap; }
+
+  /* Pricing / contact */
+  .contact-band {
+    background: var(--paper-raised);
+    border-top: 1px solid var(--rule);
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  .fee-list { list-style: none; margin: 1.3rem 0 0; padding: 0; }
+  .fee-list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.85rem 0;
+    border-top: 1px solid var(--rule);
+    font-size: 0.95rem;
+  }
+  .fee-list li:last-child { border-bottom: 1px solid var(--rule); }
+  .fee-list .t { color: var(--ink); }
+  .fee-list .v { color: var(--muted); font-variant-numeric: tabular-nums; text-align: right; }
+
+  .contact-card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 2.1rem;
+  }
+  .contact-card h3 { font-size: 1.3rem; margin-bottom: 0.3rem; }
+  .contact-card p.small { color: var(--muted); font-size: 0.9rem; margin-top: 0.4rem; }
+  .contact-line {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-top: 1.1rem;
+    font-size: 0.98rem;
+  }
+  .contact-line .label { min-width: 4.2rem; }
+  .contact-card .btn { margin-top: 1.5rem; width: 100%; text-align: center; }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 2.6rem 0;
+  }
+  footer .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .signoff {
+    font-family: "Iowan Old Style", Palatino, Georgia, serif;
+    font-style: italic;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+  footer .fine { font-size: 0.8rem; color: var(--muted); }
+
+  @media (max-width: 860px) {
+    nav.primary { display: none; }
+    .hero-top { grid-template-columns: 1fr; text-align: left; }
+    .cover-seal { justify-self: start; width: 10.5rem; height: 10.5rem; margin-top: 0.5rem; }
+    .cover-stats { grid-template-columns: repeat(2, 1fr); }
+    .cover-stats .stat:nth-child(3) { border-left: none; }
+    .essay-panel { grid-template-columns: 1fr; padding: 2.2rem 1.6rem; }
+    .citation-card { padding-left: 1.3rem; margin-top: 0.5rem; }
+    .dossier { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .school-list span { font-size: 0.92rem; padding: 0.5rem 0.9rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn { transition: none; }
+  }
+</style>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="brand">
+      <div class="logo-mark">CCP</div>
+      <div class="mark">College Consulting Pro <span>· Brian</span></div>
+    </div>
+    <nav class="primary">
+      <a href="#process">The Process</a>
+      <a href="#essay">The Essay</a>
+      <a href="#results">Results</a>
+      <a href="#about">About Brian</a>
+      <a href="#contact" class="btn ghost">Free Phone Consultation</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero-cover">
+  <div class="wrap">
+    <div class="hero-top">
+      <div>
+        <span class="label">Independent College Admissions Consulting</span>
+        <h1>Every step of the way, from freshman year to acceptance letter.</h1>
+        <p class="tagline">"Crafting compelling, individualized applications leads to reduced family stress and overriding student success."</p>
+        <div class="cta-row">
+          <a class="btn" href="tel:5164293468">Call or Text 516-429-3468</a>
+          <a class="btn ghost" href="mailto:collegeconsultingpro@gmail.com">Email Brian</a>
+        </div>
+      </div>
+      <div class="cover-seal">
+        <div class="inner">
+          <div class="monogram">CCP</div>
+          <div class="sub">Est. private practice<br>25+ years</div>
+        </div>
+      </div>
+    </div>
+    <div class="cover-stats">
+      <div class="stat">
+        <div class="n">25+</div>
+        <div class="d">Years in private practice</div>
+      </div>
+      <div class="stat">
+        <div class="n">22</div>
+        <div class="d">Years at Jericho High School</div>
+      </div>
+      <div class="stat">
+        <div class="n">3</div>
+        <div class="d">Regeneron Finalists mentored</div>
+      </div>
+      <div class="stat">
+        <div class="n">2023</div>
+        <div class="d">Coca-Cola Educator of Excellence</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="results-band" id="results">
+  <div class="wrap" style="padding: 3rem 0;">
+    <span class="label">Recent Acceptances</span>
+    <div class="school-list" style="margin-top:1.1rem;">
+      <span>Harvard</span><span>Yale</span><span>Princeton</span><span>Brown</span>
+      <span>Dartmouth</span><span>Penn</span><span>Cornell</span><span>Columbia</span>
+      <span>MIT</span><span>Stanford</span><span>Duke</span>
+    </div>
+    <span class="callout-chip">Including six full-ride scholarships to Duke University</span>
+  </div>
+</div>
+
+<section id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label">The College Process</span>
+      <h2>Present at every stage, not just application season.</h2>
+      <p class="lede">Strength of curriculum is still the number one factor selective colleges weigh. Brian works with each family from course selection through the final decision letter.</p>
+    </div>
+    <div class="process-list">
+      <div class="process-row">
+        <div class="num">01</div>
+        <div>
+          <h3>Curriculum Planning</h3>
+          <p>Advanced course selection matched to a student's real abilities and intended major, not simply what classmates are taking.</p>
+        </div>
+      </div>
+      <div class="process-row">
+        <div class="num">02</div>
+        <div>
+          <h3>Standardized Testing</h3>
+          <p>Diagnostic guidance on SAT vs. ACT fit, one-on-one tutoring, and strategy for which AP scores to report.</p>
+        </div>
+      </div>
+      <div class="process-row">
+        <div class="num">03</div>
+        <div>
+          <h3>The College Essay</h3>
+          <p>Personalized, formula-free writing sessions that surface a student's real voice, never a recycled template.</p>
+        </div>
+      </div>
+      <div class="process-row">
+        <div class="num">04</div>
+        <div>
+          <h3>Applications &amp; Activities</h3>
+          <p>Refined Common App activity descriptions and resumes that highlight genuine accomplishment.</p>
+        </div>
+      </div>
+      <div class="process-row">
+        <div class="num">05</div>
+        <div>
+          <h3>Community Engagement</h3>
+          <p>Volunteer opportunities matched to real interests: meaningful commitment over resume padding.</p>
+        </div>
+      </div>
+      <div class="process-row">
+        <div class="num">06</div>
+        <div>
+          <h3>Awards &amp; Recognition</h3>
+          <p>Guidance toward regional, national, and international competitions, especially in less common fields.</p>
+        </div>
+      </div>
+      <div class="process-row">
+        <div class="num">07</div>
+        <div>
+          <h3>Application Timing Strategy</h3>
+          <p>Clear-eyed advice on Early Decision, Early Action, Restrictive Early Action, and Rolling admissions, plus which one serves each student best.</p>
+        </div>
+      </div>
+      <div class="process-row">
+        <div class="num">08</div>
+        <div>
+          <h3>Teacher &amp; Counselor Brag Sheets</h3>
+          <p>Help preparing the materials that shape strong, specific letters of recommendation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="essay">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label">The College Essay</span>
+      <h2>No formulas. No stock phrases. Just the student's actual voice.</h2>
+    </div>
+    <div class="essay-panel">
+      <div class="copy">
+        <p>Brian uses metaphor, a compelling hook, and language that moves between longer intellectual passages and short, powerful lines, never a recycled template or a worn-out phrase.</p>
+        <p>Each student leaves with one strong core essay, thoughtfully adapted for every supplement, so no one rewrites the same story from scratch for each school.</p>
+      </div>
+      <div class="citation-card">
+        <span class="glyph">&ldquo;</span>
+        <p>Brian's own college essays earned handwritten commendation cards from UPenn and Dartmouth admissions officers.</p>
+        <cite>On writing that stands out in a highly qualified applicant pool</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label">About Brian</span>
+      <h2>A counselor's resume, applied to your family's application.</h2>
+    </div>
+    <div class="dossier">
+      <div class="dossier-card">
+        <div class="display" style="font-size:1.4rem;">Brian</div>
+        <div class="role">Founder, College Consulting Pro</div>
+        <ul class="cred-list">
+          <li>B.A., summa cum laude, Dartmouth College<span>Phi Beta Kappa</span></li>
+          <li>M.A., Middlebury College<span>Spanish Language &amp; Literature</span></li>
+          <li>M.A., Hofstra University<span>Secondary Education</span></li>
+          <li>M.S., LIU-Post<span>School Counseling</span></li>
+        </ul>
+      </div>
+      <div class="about-copy">
+        <p>Brian spent 22 years as a counselor at Jericho High School while building a private consulting practice now in its 25th year. He has guided students into every Ivy League university, along with MIT, Stanford, Duke, and dozens of other selective institutions.</p>
+        <p>Along the way, he has mentored three Regeneron Science Talent Search finalists and, in 2023, received the Coca-Cola Educator of Excellence award: recognition reserved for educators with a sustained record of shaping student outcomes.</p>
+        <div class="award-line">
+          <span class="label">Recognition</span>
+          <span style="color:var(--muted); font-size:0.92rem;">Coca-Cola Educator of Excellence, 2023 &nbsp;·&nbsp; 3× Regeneron Finalist Mentor</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="contact-band" id="contact">
+  <div class="wrap" style="padding: 4.5rem 1.75rem;">
+    <div class="contact-grid">
+      <div>
+        <span class="label">Rates &amp; Consultation</span>
+        <h2 style="margin-top:0.8rem; font-size:clamp(1.6rem, 2.4vw, 2.1rem);">Every family's plan is built around their own college list.</h2>
+        <p class="lede">Pricing is hourly or bundled into a custom package sized to the number of schools on your list. Every engagement starts with a free phone consultation.</p>
+        <ul class="fee-list">
+          <li><span class="t">Free phone consultation</span><span class="v">No charge</span></li>
+          <li><span class="t">Hourly sessions</span><span class="v">Rate provided by email</span></li>
+          <li><span class="t">Custom packages</span><span class="v">Priced by college list size</span></li>
+          <li><span class="t">Payment</span><span class="v">Venmo or Zelle</span></li>
+        </ul>
+      </div>
+      <div class="contact-card">
+        <h3>Start with a free call.</h3>
+        <p class="small">Tell Brian about your student's year and goals, and he'll outline a plan on the spot.</p>
+        <div class="contact-line"><span class="label">Call/Text</span><a href="tel:5164293468">516-429-3468</a></div>
+        <div class="contact-line"><span class="label">Email</span><a href="mailto:collegeconsultingpro@gmail.com">collegeconsultingpro@gmail.com</a></div>
+        <a class="btn" href="tel:5164293468">Call for Your Free Phone Consultation</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="signoff">Sincerely, Brian, Founder of College Consulting Pro</div>
+    <div class="fine">516-429-3468 &nbsp;·&nbsp; collegeconsultingpro@gmail.com</div>
+  </div>
+</footer>
